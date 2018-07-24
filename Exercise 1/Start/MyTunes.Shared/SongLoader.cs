@@ -18,11 +18,13 @@ namespace MyTunes
 			}
 		}
 
-		private static Stream OpenData()
-		{
-			// TODO: add code to open file here.
-			return null;
-		}
+        private static Stream OpenData()
+        {
+#if __IOS__
+            return System.IO.File.OpenRead(Filename);
+#elif __ANDROID__
+            return Android.App.Application.Context.Assets.Open(Filename);
+#endif
+        }
 	}
 }
-

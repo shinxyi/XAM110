@@ -154,6 +154,13 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="ViewControllerSource.cs" />
     <Compile Include="MyTunesViewController.cs" />
+    <Compile Include="StreamLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyTunes.Shared\MyTunes.Shared.csproj">
+      <Project>{9468483B-B307-4F69-82C5-E68F129DA629}</Project>
+      <Name>MyTunes.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />

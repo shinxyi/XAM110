@@ -4,12 +4,15 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Threading.Tasks;
 using System.Reflection;
+using MyTunes.Shared;
 
 namespace MyTunes
 {
 	public static class SongLoader
 	{
 		const string Filename = "songs.json";
+
+        public static IStreamLoader Loader { set; get; }
 
 		public static async Task<IEnumerable<Song>> Load()
 		{
@@ -20,8 +23,12 @@ namespace MyTunes
 
 		private static Stream OpenData()
 		{
-			// TODO: add code to open file here.
-			return null;
+            if (Loader == null)
+            {
+                throw new Exception("Must set platform Loader before calling Load.");
+            }
+
+            return Loader.GetStreamForFilename(Filename);
 		}
 	}
 }
